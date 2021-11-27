@@ -1,0 +1,54 @@
+*{
+  box-sizing: border-box;
+}
+
+.reveal{
+ background-color: #0275d8;
+ transition: font-size 1s;
+ font-size: 25px;
+}
+.main-title{
+margin-top:10px;
+font-size:40px;
+}
+.slot-number{
+  font-size:24px;
+}
+
+mat-grid-list:hover{
+cursor:pointer;
+}
+.myanswer{
+  margin-top:20px;
+}
+.montepremi{
+  display: block;
+  width:200px;
+  padding:35px 30px 30px 30px;
+  font-size:30px;
+  color:darkslategrey;
+  text-shadow:1px 1px gold;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 120%;
+  background-image: url('https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Ribbons-and-Banners-PNG/Golden_Banner_PNG_Clipart_Image.png?m=1441940101');
+}
+input{
+  height:30px;
+}
+.description{
+  margin-top:10px;
+  color:#fff;
+font-style: italic;
+}
+.vittoria{
+  background-color:#5cb85c;
+}
+.sconfitta{
+  background-color:#d9534f;
+}
+.bottom h3{
+  margin:0;
+  padding:20px;
+  font-size:25px;
+}

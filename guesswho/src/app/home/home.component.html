@@ -1,0 +1,45 @@
+<div class="head-section text-center">
+  <img width=300 src="https://lh3.googleusercontent.com/proxy/IwHefYgndEZjH_w-kafbPaZHm9QIWJ8ZaJnFMnPmcNW-dM0I6BBbmJ-VcdHF-QuICWifG5mnOiC4rkLSlJ03we4V5FM-kSscCjD8VjL3ytOnxQVvQF9JwH5lBMwq" alt="">
+  <h3 class="description">Clicca sulle caselle per ottenere informazioni sul personaggio misterioso, ma fai attenzione: più indizi usi minore sarà il montepremi.</h3>
+</div>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile [ngClass]="{'reveal' : tile.visible,'' : !tile.visible}"
+      *ngFor="let tile of tiles; let i = index;" (click)="!tile.visible ? show(i) : null"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.visible ? '' : tile.color">
+      <p class="slot-number" *ngIf="!tile.visible;else elseBlock">{{tile.text}}</p>
+      <ng-template #elseBlock><app-clue [quest]="tile.quest" [param]="tile.par"></app-clue></ng-template>
+  </mat-grid-tile>
+</mat-grid-list>
+<div class="myanswer d-flex flex-column">
+  <div class="top d-flex justify-content-around align-items-center">
+  <input [(ngModel)]="myinput" type="text" placeholder="Guess who?" (keyup.enter)="answer()">
+  <span class="montepremi text-center">
+    {{score}} $</span>
+</div>
+ <div *ngIf="finale.length!=0" [ngClass]="{'vittoria' : finale[1], 'sconfitta' : !finale[1] }" class="bottom d-flex align-items-center justify-content-center">
+   <h3>{{finale[0]}}</h3>
+ </div>
+</div>
+
+
+<!-- <p (click)="reveal(birth_year)">Quale è l'anno di nascita?</p> <span #birth_year>{{random.birth_year}}</span>
+<p (click)="reveal(genre)">è uomo o donna?</p><span #genre>{{random.genre}}</span>
+<p (click)="reveal(birth_place)">Dove è nato/a</p><span #birth_place>{{random.birth_place}}</span>
+<p (click)="reveal(hair_color)">Quale è il colore dei capelli?</p><span #hair_color>{{random.hair_color}}</span>
+<p (click)="reveal(job)">Che lavoro fa</p><span #job>{{random.job}}</span>
+<p (click)="reveal(married)">è sposato/a?</p><span #married>{{random.married}}</span>
+<p (click)="reveal(fantasy)">è un personaggio inventato</p><span #fantasy>{{random.fantasy}}</span>
+<p (click)="reveal(alive)">è vivo?</p><span #alive>{{random.alive}}</span>> -->
+
+<!--
+<app-clue [quest]="'è nato/a nel'" [param]="random.birth_year"></app-clue>
+<app-clue [quest]="'è di sesso'" [param]="random.genre"></app-clue>
+<app-clue [quest]="'è nato a'"[param]="random.birth_place"></app-clue>
+<app-clue [quest]="'ha i capelli di colore'" [param]="random.hair_color"></app-clue>
+<app-clue [quest]="'Attualmente'" [param]="random.job"></app-clue>
+<app-clue [quest]="'sposato'" [param]="random.married"></app-clue>
+<app-clue [quest]="'personaggio di fantasia'" [param]="random.fantasy"></app-clue>
+<app-clue [quest]="'vivo'" [param]="random.alive"></app-clue>
+<app-clue [quest]="'ha la pelle'" [param]="random.skin"></app-clue> -->
